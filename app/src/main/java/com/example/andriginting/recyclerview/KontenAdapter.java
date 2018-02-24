@@ -1,6 +1,8 @@
 package com.example.andriginting.recyclerview;
 
+import android.app.NotificationManager;
 import android.content.Context;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,12 +51,24 @@ public class KontenAdapter extends RecyclerView.Adapter<KontenAdapter.ViewHolder
             @Override
             public void onClick(View view) {
                 hapusItem(position);
-                Toast.makeText(context,kontenModel.getNama()
-                        .toString(),Toast.LENGTH_SHORT).show();
+                showDeletNotification(kontenModel.getNama());
+                Toast.makeText(context,kontenModel.getNama(),Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+    //untuk menampilkan notifikasi
+    private void showDeletNotification( String pesan){
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setContentTitle("File Dihapus...")
+                .setContentText(pesan);
+
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(0, mBuilder.build());
+    }
+
+    //untuk menghapus item
     private void hapusItem(int posisi){
         kontenModelList.remove(posisi);
         notifyItemRemoved(posisi);

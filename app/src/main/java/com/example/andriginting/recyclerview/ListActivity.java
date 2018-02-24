@@ -23,7 +23,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
-        getSupportActionBar().setTitle("IAK Intermediate");
+        getSupportActionBar().setTitle("Google DSC");
         rv = findViewById(R.id.recyclerPAPB);
         //fb = (FloatingActionButton)findViewById(R.id.float_button);
 
@@ -77,29 +77,6 @@ public class ListActivity extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-//    private void dialogForm(){
-//        dialog = new AlertDialog.Builder(this);
-//        final View dialogView = LayoutInflater.from(this)
-//                .inflate(R.layout.alert_layout,null);
-//        dialog.setView(dialogView);
-//        dialog.setTitle("Tambah Item");
-//        dialog.setCancelable(true);
-//
-//        tambah=(EditText)findViewById(R.id.tambah_item);
-//
-//        dialog.setPositiveButton("Tambah Item", new DialogInterface.OnClickListener() {
-//            int a = simbol(tambah.getText().toString());
-//            String nama = tambah.getText().toString();
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                KontenModel model = new KontenModel("",nama);
-//                kontenModels.add(model);
-//                adapter.notifyDataSetChanged();
-//                dialogInterface.dismiss();
-//            }
-//        });
-//        dialog.show();
-//    }
 
     private int simbol(String nama){
         int gambar = 0;
